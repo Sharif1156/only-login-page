@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUBCC — NUB Computer Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="top-bar">
+      <a href="index.html" class="brand">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="20" height="20" x="2" y="2" rx="4" fill="#111827" stroke="#3b82f6" stroke-width="1.5"/>
+          <path d="M8 8h8M8 12h8M10 16h4" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="brand-name">NUBCC</div>
+          <div class="brand-sub">NUB Computer Club</div>
+        </div>
+      </a>
+
+      <ul class="nav-list">
+        <li><a href="index.html">Events</a></li>
+        <li><a href="index.html">Notices</a></li>
+        <li><a href="index.html">Contests</a></li>
+        <li><a href="index.html">Projects</a></li>
+        <li><a href="index.html">Gallery</a></li>
+        <li><a href="index.html">Team</a></li>
+        <li><a href="index.html">More</a></li>
+        <li><a href="index.html">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="settings-btn" aria-label="Settings">⚙</button>
+
+        <div class="login-dropdown" style="position: relative; display: inline-block;">
+          <button class="login-btn" id="loginTrigger" aria-haspopup="true" aria-expanded="false">
+            <span>Login</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="portal-menu" id="portalMenu">
+            <button class="portal-item member" onclick="goHome()">🖥 Member Portal</button>
+            <button class="portal-item exec" onclick="goHome()">💼 Executive Portal</button>
+            <button class="portal-item cr" onclick="location.href='login.html'">👩‍🏫 CR Portal</button>
+          </div>
+        </div>
+
+        <a href="#" class="join-btn">Join Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-wrap">
+    <section class="home-hero">
+      <h1>NUBCC</h1>
+      <p>NUB Computer Club — a community for builders, creators, and problem solvers at North South University.</p>
+      <div class="btn-group">
+        <a href="login.html" class="btn-primary">Sign in</a>
+        <a href="#" class="btn-outline">Join Us</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const trigger = document.getElementById('loginTrigger');
+    const menu = document.getElementById('portalMenu');
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = menu.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open);
+    });
+
+    document.addEventListener('click', () => {
+      menu.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+
+    menu.addEventListener('click', (e) => e.stopPropagation());
+
+    function goHome() {
+      location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
